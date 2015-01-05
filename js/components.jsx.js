@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 (function(React, ReactRouter, Reflux, TodoActions, todoListStore, global) {
 
     // Renders a single Todo item in the list
@@ -74,7 +72,7 @@
     // Renders the todo list as well as the toggle all button
     // Used in TodoApp
     var TodoMain = React.createClass({
-		mixins: [ReactRouter.State],
+        mixins: [ReactRouter.State],
         propTypes: {
             list: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
         },
@@ -177,7 +175,7 @@
         },
         render: function() {
 
-			var routeName = this.getRoutes()[this.getRoutes().length-1].name.toLowerCase();
+            var routeName = this.getRoutes()[this.getRoutes().length-1].name.toLowerCase();
 
             return (
                 <div>
@@ -189,16 +187,16 @@
         }
     });
 
-	var routes = (
-	  	<ReactRouter.Route handler={TodoApp}>
-			<ReactRouter.Route name="All" path="/" handler={TodoMain} showing="all" />
-			<ReactRouter.Route name="Completed" path="/completed" handler={TodoMain} showing="completed" />
-			<ReactRouter.Route name="Active" path="/active" handler={TodoMain} showing="active" />
-		</ReactRouter.Route>
-	);
+    var routes = (
+        <ReactRouter.Route handler={TodoApp}>
+            <ReactRouter.Route name="All" path="/" handler={TodoMain} showing="all" />
+            <ReactRouter.Route name="Completed" path="/completed" handler={TodoMain} showing="completed" />
+            <ReactRouter.Route name="Active" path="/active" handler={TodoMain} showing="active" />
+        </ReactRouter.Route>
+    );
 
-	ReactRouter.run(routes, ReactRouter.HashLocation, function (Handler) {
-	  	React.render(<Handler/>, document.getElementById('todoapp'));
-	});
+    ReactRouter.run(routes, ReactRouter.HashLocation, function (Handler) {
+        React.render(<Handler/>, document.getElementById('todoapp'));
+    });
 
 })(window.React, window.ReactRouter, window.Reflux, window.TodoActions, window.todoListStore, window);
