@@ -1,1 +1,10 @@
 /* base.css overrides */
+
+#addmany {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#addmany > a {
+    color: rgb(61, 181, 144);
+}
